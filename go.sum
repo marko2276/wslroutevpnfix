@@ -1,0 +1,5 @@
+github.com/marko2276/wslroutesvc v0.0.0-20221116214539-38b1a34144ff h1:RiVGe7Z7euutY2VD9W7shUAISDq9HtdToTeBmsNCkzc=
+github.com/marko2276/wslroutesvc v0.0.0-20221116214539-38b1a34144ff/go.mod h1:XP2EokQn+icOWh3OAHEI7VPjoJDlr/I6oORkuRmK7Lw=
+github.com/wheatevo/wslroutesvc v0.3.0 h1:QvVwkd0ANyuRZkM/R5D7uys2z4wF/rCuW69Rc6AaZ1A=
+github.com/wheatevo/wslroutesvc v0.3.0/go.mod h1:IWRAZ7cVNf5xbjZrtaEANbQxnpT80F2VbI67O/hZS08=
+golang.org/x/sys v0.0.0-20210113181707-4bcb84eeeb78/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
