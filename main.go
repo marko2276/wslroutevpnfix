@@ -29,7 +29,15 @@ func main() {
 		}
 	}
 
-	fixRoutes("vEthernet (WSL)", &runner)
+	//list of known names for wsl eth addapters
+	wslEthApapterNames := []string{"vEthernet (WSL)", "vEthernet (WSL (Hyper-V firewall))"}
+
+	for _, wslEthApapter := range wslEthApapterNames {
+        fmt.Printf("Trying adapter %s ...\n", wslEthApapter)
+		if fixRoutes(wslEthApapter, &runner) == 0 {
+			break
+		}
+    }
 
 	buf := bufio.NewReader(os.Stdin)
     fmt.Print("Press Enter to continue ..... ")

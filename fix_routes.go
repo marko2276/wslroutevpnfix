@@ -10,18 +10,14 @@ import (
 )
 
 
-func fixRoutes(wslIfaceName string, runner runner.Runner) {
+func fixRoutes(wslIfaceName string, runner runner.Runner) int {
 	wslIface := network.NewIface(wslIfaceName, runner)
 
-	if wslIface.ID == "" {
-		fmt.Printf("Could not find interface ID for WSL interface %s", wslIfaceName)
-		return
+	if (wslIface.ID == "") || (wslIface.IP.String() == "<nil>" ) {
+		fmt.Printf("Could not find interface ID for WSL interface %s\n", wslIfaceName)
+		return -1
 	}
 
-	if wslIface.IP.String() == "<nil>" {
-		fmt.Printf("Could not find interface IP for WSL interface %s", wslIfaceName)
-		return
-	}
 	fmt.Printf("%s interface ID: %s, IP: %s \n", wslIfaceName, wslIface.ID, wslIface.IP)
 
 	routeList := network.NewRouteList(runner)
@@ -54,8 +50,9 @@ func fixRoutes(wslIfaceName string, runner runner.Runner) {
 
 	if err != nil {
 		fmt.Printf("Failed to add route %s with interface ID %s!\n%s\n%v\n", wslRoute.Network.String(), wslRoute.InterfaceID, out, err)
-		return
+		return -2
 	}
 	fmt.Printf("Route %s with interface ID %s added!", wslRoute.Network.String(), wslRoute.InterfaceID)
+	return 0
 
 }
